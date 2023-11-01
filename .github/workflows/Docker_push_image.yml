@@ -1,0 +1,23 @@
+name: Docker Image Push
+
+on:
+ push:
+  branches:
+  - main
+
+jobs:
+  Build-push_image:
+     runs-on: ubuntu-latest
+
+     steps:
+     - name: Checkout Code
+       uses: actions/checkout@v1
+
+     - name: Setup Docker Buildx
+       uses: actions/setup-buildx-actions@v1
+
+     - name: Build and push images 
+       run: |
+         docker build -t custom_image .
+         docker tag custom_image Nikhilkasera16/custom_image
+         docker push Nikhilkasera16/custom_image
