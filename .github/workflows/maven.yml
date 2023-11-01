@@ -1,0 +1,19 @@
+name: Java CI with maven
+
+on: [push]
+
+jobs:
+  build-test-deploy:
+      runs-on: ubuntu-latest
+
+      steps:
+      - name: Setup checkout-code
+        uses: actions/checkout@v1
+
+      - name: Setup JDK
+        uses: actions/setup-java@v1
+        with: 
+          java-version: 11
+
+      - name: Build With Maven
+        run: mvn package --file pom.xml
