@@ -12,11 +12,7 @@ jobs:
        steps:
        - name: checkout repo
          uses: actions/checkout@v3
-
-       - name: Satellite file upload
-         uses: IBM/satellite-config-upload-action@v1.0.1
-            
-
+         
        - name: Use Node.js 14.x
          uses: actions/setup-node@v2
          with:
