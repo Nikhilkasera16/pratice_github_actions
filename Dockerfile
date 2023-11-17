@@ -1,7 +1,7 @@
 FROM python:3
 MAINTAINER nikhil_interprises
-
-COPY . .
+WORKDIR /app
+COPY . /app
 
 RUN pip install flask flask_cors
 
